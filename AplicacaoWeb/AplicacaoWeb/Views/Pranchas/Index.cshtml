@@ -1,0 +1,33 @@
+﻿@using AplicacaoWeb.Models.Pranchas
+@model PranchasModel;
+<div class="text-center">
+    <h3>Pranchas</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Litragem</th>
+                <th>Altura</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prancha in Model.Pranchas)
+            {
+                <tr>
+                    <td>@prancha.Id</td>
+                    <td>@prancha.Modelo</td>
+                    <td>@prancha.Litragem</td>
+                    <td>@prancha.Altura</td>
+                    <td>
+                        <a type="button"
+                           class="btn btn-warning"
+                       asp-controller="Pranchas"
+                       asp-action="Record"
+                       asp-route-id="@prancha.Id">Editar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

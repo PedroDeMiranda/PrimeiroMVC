@@ -1,0 +1,29 @@
+﻿@using AplicacaoWeb.Models.Pessoas
+@model PessoasModel;
+<div>
+    <h1>Alunos</h1>
+    <br>
+    <h3>Pessoas</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Turma</th>
+                <th>Situação</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pessoa in Model.Pessoas)
+            {
+            <tr>
+                <td>@pessoa.Id</td>
+                <td>@pessoa.Nome</td>
+                <td>@pessoa.Turma</td>
+                <td>@pessoa.Situacao</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

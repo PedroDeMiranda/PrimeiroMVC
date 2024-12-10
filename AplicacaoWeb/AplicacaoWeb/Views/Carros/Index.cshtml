@@ -1,0 +1,34 @@
+﻿@using AplicacaoWeb.Models.Carros
+@model CarrosModel;
+<div class="text-center">
+    <table class="table table-striped">
+        <h1>Carros</h1>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Modelo</th>
+                <th>Placa</th>
+                <th>Ano</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var carro in Model.Carros)
+            {
+                <tr>
+                    <td>@carro.Id</td>
+                    <td>@carro.Modelo</td>
+                    <td>@carro.Placa</td>
+                    <td>@carro.Ano</td>
+                    <td>
+                        <a type="button" 
+                            class="btn btn-warning" 
+                            asp-controller="Carros" 
+                            asp-action="Record" 
+                            asp-route-id="@carro.Id"
+                        >Editar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
