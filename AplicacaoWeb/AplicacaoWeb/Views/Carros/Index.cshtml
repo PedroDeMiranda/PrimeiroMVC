@@ -9,6 +9,7 @@
                 <th>Modelo</th>
                 <th>Placa</th>
                 <th>Ano</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -20,12 +21,11 @@
                     <td>@carro.Placa</td>
                     <td>@carro.Ano</td>
                     <td>
-                        <a type="button" 
-                            class="btn btn-warning" 
-                            asp-controller="Carros" 
-                            asp-action="Record" 
-                            asp-route-id="@carro.Id"
-                        >Editar</a>
+                        <a type="button"
+                           class="btn btn-warning"
+                       asp-controller="Carros"
+                       asp-action="Record"
+                       asp-route-id="@carro.Id">Editar</a>
                     </td>
                 </tr>
             }

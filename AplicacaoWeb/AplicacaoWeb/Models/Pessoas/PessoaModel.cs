@@ -7,7 +7,7 @@
 
         public string Turma { get; set; }
 
-        public string Situacao { get; set; }
+        public int Situacao { get; set; }
 
     }
 }

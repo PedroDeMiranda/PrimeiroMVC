@@ -3,9 +3,10 @@
 
 
 <div>
-    <h1>Prancha</h1>
-    <form>
+    <h1 class="h1 m-2">Prancha</h1>
+    <form asp-controller="Pranchas" asp-action="Save" method="post">
         <div class="form-group">
+            <input type="hidden" asp-for="Id">
             <label>Modelo</label>
             <input type="text" class="form-label" id="modelo" asp-for="Modelo">
         </div>
@@ -17,10 +18,10 @@
 
         <div class="form-group">
             <label>Altura</label>
-            <input type="number" class="form-label" id="ano" asp-for="Altura">
+            <input type="number" step="0.01" class="form-label" id="ano" asp-for="Altura">
         </div>
 
+        <button type="submit" class="btn btn-primary float-end m-1">Salvar</button>
+        <a type="button" class="btn btn-secondary float-end m-1" asp-controller="Pranchas" asp-action="Index">Voltar</a>
     </form>
-
-    <button type="submit" class="btn btn-primary">Editar Carro</button>
 </div>

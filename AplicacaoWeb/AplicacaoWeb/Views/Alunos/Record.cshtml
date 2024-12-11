@@ -1,0 +1,32 @@
+﻿@using AplicacaoWeb.Models.Pessoas
+@model PessoaModel
+
+
+<div>
+    <h2>Alunos</h2>
+
+    <form asp-controller="Alunos" asp-action="Save" method="post">
+        <input type="hidden" asp-for="Id"/>
+        <div class="form-group">
+            <label>Nome</label>
+            <input type="text" class="form-label" id="nome" asp-for="Nome">
+        </div>
+
+        <div class="form-group">
+            <label>Turma</label>
+            <input type="text" class="form-label" id="turma" asp-for="Turma">
+        </div>
+
+        <div class="form-group">
+            <label>Situacao</label>
+            <select id="situacao" class="form-select" asp-for="Situacao">
+                <option value="10">Aprovado</option>
+                <option value="20">Parcialmente Aprovado</option>
+                <option value="30">Não Atendido</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary float-end m-1">Salvar</button>
+        <a type="button" class="btn btn-secondary float-end m-1" asp-controller="Alunos" asp-action="Index">Voltar</a>
+    </form>
+
+</div>
