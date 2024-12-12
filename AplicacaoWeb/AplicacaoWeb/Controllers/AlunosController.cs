@@ -18,13 +18,10 @@ namespace AplicacaoWeb.Controllers
 
         public IActionResult Index()
         {
-            
-
             var model = new PessoasModel()
             {
                 Pessoas = _Alunos,
             };
-
             return View(model);
         }
 
@@ -44,6 +41,15 @@ namespace AplicacaoWeb.Controllers
             aluno.Nome = model.Nome;
             aluno.Turma = model.Turma;
             aluno.Situacao = model.Situacao;
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Excluir(PessoaModel model)
+        {
+            var aluno = _Alunos.FirstOrDefault(i => i.Id == model.Id);
+
+            _Alunos.Remove(aluno);
 
             return RedirectToAction("Index");
         }

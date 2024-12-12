@@ -1,4 +1,5 @@
-﻿using AplicacaoWeb.Models.Pranchas;
+﻿using AplicacaoWeb.Models.Pessoas;
+using AplicacaoWeb.Models.Pranchas;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AplicacaoWeb.Controllers
@@ -35,6 +36,15 @@ namespace AplicacaoWeb.Controllers
             prancha.Modelo = model.Modelo;
             prancha.Altura = model.Altura;
             prancha.Litragem = model.Litragem;
+
+            return RedirectToAction("Index");
+        }
+ 
+        public IActionResult Excluir(PessoaModel model)
+        {
+            var prancha = _Pranchas.FirstOrDefault(i => i.Id == model.Id);
+
+            _Pranchas.Remove(prancha);
 
             return RedirectToAction("Index");
         }

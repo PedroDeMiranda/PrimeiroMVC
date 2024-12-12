@@ -6,7 +6,7 @@ namespace AplicacaoWeb.Controllers
 {
     public class CarrosController : Controller
     {
-        public List<CarroModel> _Carros = new List<CarroModel>() {
+        static List<CarroModel> _Carros = new List<CarroModel>() {
                 new CarroModel(){ Id = 1, Modelo = "GOL", Placa = "FGF5F78", Ano = 1990},
                 new CarroModel(){ Id = 2, Modelo = "Sandero", Placa = "RED5D45", Ano = 2000},
                 new CarroModel(){ Id = 3, Modelo = "Saveiro", Placa = "HJF4R42", Ano = 2005},
@@ -26,6 +26,27 @@ namespace AplicacaoWeb.Controllers
             var carroAtual = _Carros.FirstOrDefault(carro => carro.Id == id);
 
             return View(carroAtual);
+        }
+
+        [HttpPost]
+        public IActionResult Save(CarroModel model)
+        {
+            var carro = _Carros.FirstOrDefault(i => i.Id == model.Id);
+
+            carro.Modelo = model.Modelo;
+            carro.Placa = model.Placa;
+            carro.Ano = model.Ano;
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Excluir(CarroModel model)
+        {
+            var carro = _Carros.FirstOrDefault(i => i.Id == model.Id);
+
+            _Carros.Remove(carro);
+
+            return RedirectToAction("Index");
         }
     }
 }
